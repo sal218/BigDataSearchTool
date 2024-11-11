@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real Estate Property Search</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Search Real Estate Properties</h1>
+    <form action="/search" method="post">
+        <label>City: <input type="text" name="city"></label><br>
+        <label>Neighborhood: <input type="text" name="neighborhood"></label><br>
+        <label>Property Type: <input type="text" name="property_type"></label><br>
+        <label>Min Price: <input type="number" name="min_price"></label><br>
+        <label>Max Price: <input type="number" name="max_price"></label><br>
+        <label>Min Bedrooms: <input type="number" name="min_bedrooms"></label><br>
+        <label>Max Bedrooms: <input type="number" name="max_bedrooms"></label><br>
+        <label>Sort By: 
+            <select name="sort_by">
+                <option value="price">Price</option>
+                <option value="size">Size</option>
+                <option value="recent">Most Recent</option>
+            </select>
+        </label><br>
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>
