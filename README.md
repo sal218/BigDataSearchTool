@@ -1,7 +1,10 @@
 # COMP455
 Extreme Computing - A powerful searching tool for large datasets
 
-
+# IMPORTANT
+- The dataset was too large to add to github so make sure you download it from here
+    https://www.kaggle.com/datasets/ahmedshahriarsakib/usa-real-estate-dataset
+- Then add the .csv file to your project folder so that generate_db.py can parse it and create the db. (steps for this in next section below)
 
 # Running the program
 
