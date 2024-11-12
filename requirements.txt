@@ -1,0 +1,2 @@
+Flask==2.2.2               # For web framework
+SQLAlchemy==1.4.46         # For database ORM

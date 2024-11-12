@@ -3,26 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <title>Real Estate Property Search</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
     <h1>Search Real Estate Properties</h1>
     <form action="/search" method="post">
-        <label>City: <input type="text" name="city"></label><br>
-        <label>Neighborhood: <input type="text" name="neighborhood"></label><br>
-        <label>Property Type: <input type="text" name="property_type"></label><br>
-        <label>Min Price: <input type="number" name="min_price"></label><br>
-        <label>Max Price: <input type="number" name="max_price"></label><br>
+        <!-- All possible states in DB render in dropdown menu -->
+        <label for="state">State:</label>
+        <select name="state" id="state">
+            <option value="">--Select State--</option>
+            <option value="Florida">Florida</option>
+            <option value="California">California</option>
+            <option value="Texas">Texas</option>
+            <option value="New York">New York</option>
+            <option value="North Carolina">North Carolina</option>
+            <option value="Illinois">Illinois</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Pennsylvania">Pennsylvania</option>
+            <option value="Arizona">Arizona</option>
+            <option value="Virginia">Virginia</option>
+            <option value="Washington">Washington</option>
+            <option value="Ohio">Ohio</option>
+            <option value="New Jersey">New Jersey</option>
+            <option value="Maryland">Maryland</option>
+            <option value="Missouri">Missouri</option>
+            <option value="Minnesota">Minnesota</option>
+            <option value="Michigan">Michigan</option>
+            <option value="Wisconsin">Wisconsin</option>
+            <option value="South Carolina">South Carolina</option>
+            <option value="Tennessee">Tennessee</option>
+            <option value="Massachusetts">Massachusetts</option>
+            <option value="Oklahoma">Oklahoma</option>
+            <option value="Alabama">Alabama</option>
+            <option value="Colorado">Colorado</option>
+            <option value="Oregon">Oregon</option>
+            <option value="Kentucky">Kentucky</option>
+            <option value="Louisiana">Louisiana</option>
+            <option value="Arkansas">Arkansas</option>
+            <option value="Iowa">Iowa</option>
+            <option value="New Mexico">New Mexico</option>
+            <option value="Indiana">Indiana</option>
+            <option value="Idaho">Idaho</option>
+            <option value="Mississippi">Mississippi</option>
+            <option value="Kansas">Kansas</option>
+            <option value="Nevada">Nevada</option>
+            <option value="Utah">Utah</option>
+            <option value="Connecticut">Connecticut</option>
+            <option value="West Virginia">West Virginia</option>
+            <option value="Montana">Montana</option>
+            <option value="Delaware">Delaware</option>
+            <option value="Rhode Island">Rhode Island</option>
+            <option value="Hawaii">Hawaii</option>
+            <option value="District of Columbia">District of Columbia</option>
+            <option value="Nebraska">Nebraska</option>
+            <option value="Maine">Maine</option>
+            <option value="South Dakota">South Dakota</option>
+            <option value="North Dakota">North Dakota</option>
+            <option value="Wyoming">Wyoming</option>
+            <option value="New Hampshire">New Hampshire</option>
+            <option value="Puerto Rico">Puerto Rico</option>
+            <option value="Vermont">Vermont</option>
+            <option value="Alaska">Alaska</option>
+            <option value="Virgin Islands">Virgin Islands</option>
+            <option value="Guam">Guam</option>
+            <option value="New Brunswick">New Brunswick</option>
+        </select><br>
+
+        <!-- City Input -->
+        <label for="city">City:</label>
+        <input type="text" name="city" id="city" placeholder="Enter city name" autocomplete="off">
+        <div id="city-suggestions" class="autocomplete-suggestions"></div><br>
+
+        <!-- Price Range Inputs -->
+        <label>Min Price: <input type="number" name="min_price" step="0.01"></label><br>
+        <label>Max Price: <input type="number" name="max_price" step="0.01"></label><br>
+
+        <!-- Bedroom Inputs -->
         <label>Min Bedrooms: <input type="number" name="min_bedrooms"></label><br>
         <label>Max Bedrooms: <input type="number" name="max_bedrooms"></label><br>
-        <label>Sort By: 
-            <select name="sort_by">
-                <option value="price">Price</option>
-                <option value="size">Size</option>
-                <option value="recent">Most Recent</option>
-            </select>
-        </label><br>
+
+        <!-- Bathroom Inputs -->
+        <label>Min Bathrooms: <input type="number" name="min_bathrooms"></label><br>
+        <label>Max Bathrooms: <input type="number" name="max_bathrooms"></label><br>
+
+        <!-- House Size Inputs -->
+        <label>Min House Size (sq ft): <input type="number" name="min_house_size"></label><br>
+        <label>Max House Size (sq ft): <input type="number" name="max_house_size"></label><br>
+
+        <!-- Sorting Options -->
+        <label>Sort By:</label>
+        <select name="sort_by">
+            <option value="price">Price</option>
+            <option value="house_size">Square Footage</option>
+        </select><br>
+
         <button type="submit">Search</button>
     </form>
+    <script src="/static/js/scripts.js"></script>
 </body>
 </html>

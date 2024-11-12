@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <h2>Search Results</h2>
+    <div class="results-container">
+        {% if properties %}
+            {% for property in properties %}
+                <div class="property-card">
+                    <div class="property-info">
+                        <p><strong>City:</strong> {{ property.city or "N/A" }}</p>
+                        <p><strong>Street:</strong> {{ property.street or "N/A" }}</p>
+                        <p><strong>State:</strong> {{ property.state or "N/A" }}</p>
+                        <p><strong>Zip Code:</strong> {{ property.zip_code or "N/A" }}</p>
+                        <p><strong>Price:</strong> ${{ property.price | intcomma }}</p>
+                        <p><strong>Bedrooms:</strong> {{ property.bed or "N/A" }}</p>
+                        <p><strong>Bathrooms:</strong> {{ property.bath or "N/A" }}</p>
+                        <p><strong>House Size:</strong> {{ property.house_size or "N/A" }} sq ft</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No results found. Please adjust your search criteria.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
