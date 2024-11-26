@@ -139,6 +139,8 @@ h2 {
     margin-top: 30px;
     text-align: center;
 }
+
+/* Autocomplete Suggestions */
 .autocomplete-suggestions {
     border: 1px solid #ddd;
     max-height: 150px;
@@ -155,4 +157,95 @@ h2 {
 
 .suggestion-item:hover {
     background-color: #f0f0f0;
+}
+
+/* Results Header */
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.results-summary {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.filter-form {
+    display: flex;
+    align-items: center;
+}
+
+.filter-label {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #495057;
+}
+
+.filter-dropdown {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+/* Go Back Button */
+.go-back-button {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9em;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.go-back-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    font-size: 0.9em;
+    color: #555;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Introductory Text */
+.intro-text {
+    font-family: 'Georgia', serif; /* Elegant and professional font */
+    font-size: 1.2em; /* Slightly larger than normal text */
+    color: #555; /* Subtle contrast for readability */
+    text-align: center; /* Center-align for symmetry */
+    margin-top: 10px; /* Space between heading and intro text */
+    margin-bottom: 30px; /* Space before the form */
+    line-height: 1.6; /* Increase line spacing for better readability */
 }

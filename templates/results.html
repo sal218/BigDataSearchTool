@@ -6,26 +6,64 @@
     <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
-    <h2>Search Results</h2>
-    <div class="results-container">
-        {% if properties %}
-            {% for property in properties %}
-                <div class="property-card">
-                    <div class="property-info">
-                        <p><strong>City:</strong> {{ property.city or "N/A" }}</p>
-                        <p><strong>Street:</strong> {{ property.street or "N/A" }}</p>
-                        <p><strong>State:</strong> {{ property.state or "N/A" }}</p>
-                        <p><strong>Zip Code:</strong> {{ property.zip_code or "N/A" }}</p>
-                        <p><strong>Price:</strong> ${{ property.price | intcomma }}</p>
-                        <p><strong>Bedrooms:</strong> {{ property.bed or "N/A" }}</p>
-                        <p><strong>Bathrooms:</strong> {{ property.bath or "N/A" }}</p>
-                        <p><strong>House Size:</strong> {{ property.house_size or "N/A" }} sq ft</p>
+    <div class="container">
+
+        <!-- Go Back Button -->
+        <a href="/" class="go-back-button">Go Back</a>
+
+        <h2>Search Results</h2>
+
+        <!-- Results Summary and Filters -->
+        <div class="results-header">
+            <!-- Show total number of properties found -->
+            <p class="results-summary">Found <strong>{{ properties|length }}</strong> properties matching your criteria.</p>
+
+            <!-- Filtering Options -->
+            <form method="POST" action="/search" class="filter-form">
+                <!-- Retain previous search filters using hidden fields -->
+                <input type="hidden" name="city" value="{{ request.form.city }}">
+                <input type="hidden" name="state" value="{{ request.form.state }}">
+                <input type="hidden" name="status" value="{{ request.form.status }}">
+                <input type="hidden" name="min_price" value="{{ request.form.min_price }}">
+                <input type="hidden" name="max_price" value="{{ request.form.max_price }}">
+                <input type="hidden" name="min_bed" value="{{ request.form.min_bed }}">
+                <input type="hidden" name="max_bed" value="{{ request.form.max_bed }}">
+                <input type="hidden" name="min_bath" value="{{ request.form.min_bath }}">
+                <input type="hidden" name="max_bath" value="{{ request.form.max_bath }}">
+                <input type="hidden" name="min_house_size" value="{{ request.form.min_house_size }}">
+                <input type="hidden" name="max_house_size" value="{{ request.form.max_house_size }}">
+
+                <!-- Dropdown for sorting by price -->
+                <label for="sort_by" class="filter-label">Sort by:</label>
+                <select name="sort_by" id="sort_by" class="filter-dropdown" onchange="this.form.submit()">
+                    <option value="">Select</option>
+                    <option value="price_asc" {% if request.form.sort_by == 'price_asc' %}selected{% endif %}>Price: Low to High</option>
+                    <option value="price_desc" {% if request.form.sort_by == 'price_desc' %}selected{% endif %}>Price: High to Low</option>
+                </select>
+            </form>
+        </div>
+
+        <!-- Results Container -->
+        <div class="results-container">
+            {% if properties %}
+                {% for property in properties %}
+                    <div class="property-card">
+                        <div class="property-info">
+                            <p><strong>City:</strong> {{ property.city or "N/A" }}</p>
+                            <p><strong>Street:</strong> {{ property.street or "N/A" }}</p>
+                            <p><strong>State:</strong> {{ property.state or "N/A" }}</p>
+                            <p><strong>Zip Code:</strong> {{ property.zip_code or "N/A" }}</p>
+                            <p><strong>Price:</strong> ${{ property.price | intcomma }}</p>
+                            <p><strong>Bedrooms:</strong> {{ property.bed or "N/A" }}</p>
+                            <p><strong>Bathrooms:</strong> {{ property.bath or "N/A" }}</p>
+                            <p><strong>House Size:</strong> {{ property.house_size or "N/A" }} sq ft</p>
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p>No results found. Please adjust your search criteria.</p>
-        {% endif %}
+                {% endfor %}
+            {% else %}
+                <p>No results found. Please adjust your search criteria.</p>
+            {% endif %}
+        </div>
     </div>
 </body>
 </html>

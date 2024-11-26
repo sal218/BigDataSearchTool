@@ -6,9 +6,14 @@
     <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
-    <h1>Search Real Estate Properties</h1>
+    <!-- Main Heading -->
+    <h1>Search Real Estate Properties In The United States</h1>
+    <p class="intro-text">Search through thousands of properties in the United States to find your perfect match.</p>
+
+
+    <!-- Search Form -->
     <form action="/search" method="post">
-        <!-- All possible states in DB render in dropdown menu -->
+        <!-- State Dropdown -->
         <label for="state">State:</label>
         <select name="state" id="state">
             <option value="">--Select State--</option>
@@ -99,6 +104,12 @@
 
         <button type="submit">Search</button>
     </form>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Real Estate Finder. All rights reserved.</p>
+    </footer>
+
     <script src="/static/js/scripts.js"></script>
 </body>
 </html>

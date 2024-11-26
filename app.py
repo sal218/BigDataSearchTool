@@ -23,8 +23,7 @@ def autocomplete_cities():
         else:
             result = conn.execute(
                 text("SELECT DISTINCT city FROM properties WHERE city LIKE :query ORDER BY city"),
-                {"query": f"{query}%"}
-            )
+                {"query": f"{query}%"})
         cities = [row["city"] for row in result]
     return jsonify(cities)
 
@@ -57,8 +56,7 @@ def search():
     sort_by = request.form.get("sort_by")
 
     # build SQL query dynamically based on filters in UI
-
-    # a base query to select all entries give that 1 = 1 is true (which is it always is) used as a placeholder
+    # a base query to select all entries give that 1 = 1 is true (which it always is) used as a placeholder
     query = "SELECT * FROM properties WHERE 1=1"
     # dictionary to store query parameters
     params = {}
@@ -98,13 +96,11 @@ def search():
         query += " AND house_size <= :max_house_size"
         params["max_house_size"] = max_house_size
 
-    # Sorting logic based on user selection
-    if sort_by == "price":
-        query += " ORDER BY price"
-    elif sort_by == "bed":
-        query += " ORDER BY bed"
-    elif sort_by == "bath":
-        query += " ORDER BY bath"
+    # Handle sorting logic
+    if sort_by == "price_asc":
+        query += " ORDER BY price ASC"
+    elif sort_by == "price_desc":
+        query += " ORDER BY price DESC"
 
     # execute the SQL query with the params provided
     with engine.connect() as conn:
