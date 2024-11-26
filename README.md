@@ -22,3 +22,6 @@ Extreme Computing - A powerful searching tool for large datasets
 5. Enter values into the boxes (Can leave empty if you choose)
 
 6. Click Search
+
+Results page will render automatically displaying the results of your search. 
+Further filtering can be done in the results page. 
